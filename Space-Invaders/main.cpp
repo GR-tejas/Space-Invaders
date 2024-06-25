@@ -16,6 +16,21 @@ int main()
     Square.setFillColor(sf::Color::Red);
     Square.setPosition(600, 100);
 
+    sf::Texture texture;
+    texture.loadFromFile("assets/textures/outscal_logo.png");
+
+    sf::Sprite outscal_sprite;
+    outscal_sprite.setTexture(texture);
+
+    outscal_sprite.setPosition(200, 400);
+    outscal_sprite.setRotation(-45);
+    outscal_sprite.setScale(0.5, 0.5);
+
+    sf::Font font;
+    font.loadFromFile("assets/fonts/OpenSans.ttf");
+    sf::Text text("Hello SFML!", font, 50);
+    text.setFillColor(sf::Color::Red);
+
     sf::ConvexShape triangle;
     triangle.setPointCount(3);
     triangle.setPoint(0, sf::Vector2f(400, 100)); // Top point
@@ -41,6 +56,10 @@ int main()
         window.draw(Square);
 
         window.draw(triangle);
+
+        window.draw(text);
+
+        window.draw(outscal_sprite);
 
         window.display();
     }
