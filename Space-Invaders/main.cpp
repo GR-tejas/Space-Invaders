@@ -7,7 +7,7 @@ class player
 {
     int health = 3, playerScore = 0;
 
-    Vector2f position = Vector2f(400.0f, 500.0f); 
+    Vector2f position = Vector2f(350.0f, 500.0f); 
     
     float moveSpeed = 5;
 
@@ -48,7 +48,7 @@ public:
     }
     void move()
     {
-        cout << "player moves\n";
+        cout << "player moved";
     }
     void shootBullets()
     {
@@ -69,20 +69,33 @@ int main()
 
     Vector2f pos = player.getPlayerPosition();
 
+    player.playerTexture.loadFromFile("assets/textures/player_ship.png");
 
-    cout << speed << "\n";
-
-    cout << "position:" << pos.x << "," << pos.y << "\n";
+    player.playerSprite.setTexture(player.playerTexture);
 
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (Keyboard::isKeyPressed(Keyboard::Left))
+            {
+                player.move();
+                cout << " left\n";
+            }
+            if (Keyboard::isKeyPressed(Keyboard::Right))
+            {
+                player.move();
+                cout << " Right\n";
+            }
         }
 
 
         window.clear(sf::Color::Blue);
+
+        player.playerSprite.setPosition(player.getPlayerPosition());
+
+        window.draw(player.playerSprite);
 
         window.display();
     }
