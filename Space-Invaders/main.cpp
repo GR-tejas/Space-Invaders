@@ -42,12 +42,18 @@ public:
         return position;
     }
 
+    /*void setPlayerPostion(Vector2f newPos)
+    {
+        position = newPos;
+    }*/
+
     void takeDamage() 
     {
         cout << "player takes damage\n";
     }
-    void move()
+    void move(float offsetX)
     {
+        position.x += offsetX;
         cout << "player moved";
     }
     void shootBullets()
@@ -80,12 +86,12 @@ int main()
                 window.close();
             if (Keyboard::isKeyPressed(Keyboard::Left))
             {
-                player.move();
+                player.move(-1.0f * player.getMoveSpeed());
                 cout << " left\n";
             }
             if (Keyboard::isKeyPressed(Keyboard::Right))
             {
-                player.move();
+                player.move(1.0f * player.getMoveSpeed());
                 cout << " Right\n";
             }
         }
