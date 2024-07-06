@@ -42,11 +42,6 @@ public:
         return position;
     }
 
-    /*void setPlayerPostion(Vector2f newPos)
-    {
-        position = newPos;
-    }*/
-
     void takeDamage() 
     {
         cout << "player takes damage\n";
