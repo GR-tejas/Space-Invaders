@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Header/GameServices.h"
 using namespace std;
 using namespace sf;
 
+/*
 class player
 {
     int health = 3, playerScore = 0;
@@ -56,10 +58,11 @@ public:
         cout << "player shoots bullets\n";
     }
 };
+*/
 
 int main()
 {
-
+    /*
     VideoMode videoMode = sf::VideoMode(800, 600);
 
     RenderWindow window(videoMode, "Player 1");
@@ -99,6 +102,15 @@ int main()
         window.draw(player.playerSprite);
 
         window.display();
+    }
+    */
+    GameService gs;
+    gs.start();
+
+    while (gs.isRunning())
+    {
+        gs.update();
+        gs.render();
     }
     return 0;
 }
