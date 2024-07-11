@@ -104,13 +104,14 @@ int main()
         window.display();
     }
     */
-    GameService gs;
-    gs.start();
+    GameService* gs = new GameService();
 
-    while (gs.isRunning())
+    gs->start();
+
+    while (gs->isRunning())
     {
-        gs.update();
-        gs.render();
+        gs->update();
+        gs->render();
     }
     return 0;
 }

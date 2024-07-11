@@ -1,8 +1,10 @@
 #pragma once
-
+#include "../Header/GraphicsServices.h"
 class ServiceLocator
 {
 private:
+    GraphicsService *graphics_service;
+
     ServiceLocator();
 
     ~ServiceLocator();
@@ -17,4 +19,5 @@ public:
     void update(); 
     void render();
 
+    GraphicsService* getGraphicsService();
 };
