@@ -12,7 +12,7 @@ private:
 
     Vector2f position = Vector2f(350.0f, 500.0f);
 
-    float moveSpeed = 5;
+    float moveSpeed = 0.05f;
 
     const sf::String player_texture_path = "assets/textures/player_ship.png";
 
@@ -34,7 +34,9 @@ public:
     void update();
     void render();
 
-    void move(float offsetX);
+    //void move(float offsetX);
+    void moveLeft();
+    void moveRight();
     int getMoveSpeed();
     Vector2f getPosition();
 };
