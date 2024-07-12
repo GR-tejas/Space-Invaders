@@ -48,6 +48,16 @@ bool EventService::pressedEscapeKey()
 	return game_event.key.code == sf::Keyboard::Escape;
 }
 
+bool EventService::pressedLeftKey()
+{
+	return(Keyboard::isKeyPressed(Keyboard::Left));
+}
+
+bool EventService::pressedRightKey()
+{
+	return(Keyboard::isKeyPressed(Keyboard::Right));
+}
+
 bool EventService::isGameWindowOpen() 
 {
 	return game_window != nullptr;
