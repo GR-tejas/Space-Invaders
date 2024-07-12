@@ -20,6 +20,7 @@ float TimeService::getDeltaTime()
 void TimeService::updateDeltaTime()
 {
 	delta_time = calculateDeltaTime();
+	updatePreviousTime();
 }
 
 float TimeService::calculateDeltaTime()
