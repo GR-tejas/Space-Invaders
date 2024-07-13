@@ -64,7 +64,7 @@ Vector2f PlayerService::getPosition()
 {
 	return position;
 }
-int PlayerService::getMoveSpeed()
+float PlayerService::getMoveSpeed()
 {
 	return moveSpeed;
 }

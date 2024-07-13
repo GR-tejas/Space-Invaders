@@ -37,6 +37,6 @@ public:
     //void move(float offsetX);
     void moveLeft();
     void moveRight();
-    int getMoveSpeed();
+    float getMoveSpeed();
     Vector2f getPosition();
 };
