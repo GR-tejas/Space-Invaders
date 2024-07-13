@@ -133,6 +133,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source\EvnetService.cpp" />
+    <ClCompile Include="Source\GameServices.cpp" />
+    <ClCompile Include="Source\GraphicsServices.cpp" />
+    <ClCompile Include="Source\Player\PlayerModel.cpp" />
+    <ClCompile Include="Source\ServiceLocator.cpp" />
+    <ClCompile Include="Source\PlayerService.cpp" />
+    <ClCompile Include="Source\TimeService.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\GameServices.h" />
+    <ClInclude Include="Header\GraphicsServices.h" />
+    <ClInclude Include="Header\EventService.h" />
+    <ClInclude Include="Header\Player\PlayerModel.h" />
+    <ClInclude Include="Header\TimeService.h" />
+    <ClInclude Include="Header\PlayerService.h" />
+    <ClInclude Include="Header\ServiceLocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
