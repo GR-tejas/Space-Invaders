@@ -4,30 +4,33 @@
 using namespace std;
 using namespace sf;
 
-class GraphicsService
+namespace Graphic
 {
-private:
-	const string gameWindowTitle = "Space Defenders";
-	const int windowHight = 600, windowWidth = 800;
-	const Color windowColor = Color::Blue;
+	class GraphicsService
+	{
+	private:
+		const string gameWindowTitle = "Space Defenders";
+		const int windowHight = 600, windowWidth = 800;
+		const Color windowColor = Color::Blue;
 
-	VideoMode* video_mode;
-	RenderWindow* gameWindow;
+		VideoMode* video_mode;
+		RenderWindow* gameWindow;
 
-	void setVideoMode();
-	void onDestroy();
+		void setVideoMode();
+		void onDestroy();
 
-public:
-	GraphicsService();
-	~GraphicsService();
+	public:
+		GraphicsService();
+		~GraphicsService();
 
-	RenderWindow* createGameWindow();
+		RenderWindow* createGameWindow();
 
-	void initialize();
-	void update();
-	void render();
-	bool isGameWindowOpen();
+		void initialize();
+		void update();
+		void render();
+		bool isGameWindowOpen();
 
-	RenderWindow* getGameWindow();
-	Color getWindowColor();
-};
+		RenderWindow* getGameWindow();
+		Color getWindowColor();
+	};
+}

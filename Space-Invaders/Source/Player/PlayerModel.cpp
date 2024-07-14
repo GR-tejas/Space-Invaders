@@ -1,54 +1,57 @@
 #include "../../Header/Player/PlayerModel.h"
 
-PlayerModel::PlayerModel() { }
-
-PlayerModel::~PlayerModel() { }
-
-void PlayerModel::initialize() { reset(); }
-
-void PlayerModel::reset()
+namespace Player
 {
-	playerAlive = true;
-	currentPosition = initialPostion;
-	playerScore = 0;
-}
+	PlayerModel::PlayerModel() { }
 
-sf::Vector2f PlayerModel::getPlayerPosition()
-{
-	return currentPosition;
-}
+	PlayerModel::~PlayerModel() { }
 
-void PlayerModel::setPlayerPosition(sf::Vector2f position)
-{
-	currentPosition = position;
-}
+	void PlayerModel::initialize() { reset(); }
 
-bool PlayerModel::isPlayerAlive()
-{
-	return playerAlive;
-}
+	void PlayerModel::reset()
+	{
+		playerAlive = true;
+		currentPosition = initialPostion;
+		playerScore = 0;
+	}
 
-void PlayerModel::setPlayerAlive(bool alive)
-{
-	playerAlive = alive;
-}
+	sf::Vector2f PlayerModel::getPlayerPosition()
+	{
+		return currentPosition;
+	}
 
-int PlayerModel::getPlayerScore()
-{
-	return playerScore;
-}
+	void PlayerModel::setPlayerPosition(sf::Vector2f position)
+	{
+		currentPosition = position;
+	}
 
-void PlayerModel::setPlayerScore(int score)
-{
-	playerScore = score;
-}
+	bool PlayerModel::isPlayerAlive()
+	{
+		return playerAlive;
+	}
 
-PlayerState PlayerModel::getPlayerState()
-{
-	return player_state;
-}
+	void PlayerModel::setPlayerAlive(bool alive)
+	{
+		playerAlive = alive;
+	}
 
-void PlayerModel::setPlayerState(PlayerState state)
-{
-	player_state = state;
+	int PlayerModel::getPlayerScore()
+	{
+		return playerScore;
+	}
+
+	void PlayerModel::setPlayerScore(int score)
+	{
+		playerScore = score;
+	}
+
+	PlayerState PlayerModel::getPlayerState()
+	{
+		return player_state;
+	}
+
+	void PlayerModel::setPlayerState(PlayerState state)
+	{
+		player_state = state;
+	}
 }

@@ -4,6 +4,7 @@
 using namespace std;
 using namespace sf;
 
+
 /*
 class player
 {
@@ -104,7 +105,7 @@ int main()
         window.display();
     }
     */
-    GameService* gs = new GameService();
+    Main::GameService* gs = new Main::GameService();
 
     gs->start();
 
