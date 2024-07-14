@@ -1,5 +1,5 @@
-#include"../Header/ServiceLocator.h"
-#include"../Header/GraphicsServices.h"
+#include"../Header/Global/ServiceLocator.h"
+#include"../Header/Graphic/GraphicsServices.h"
 
 ServiceLocator::ServiceLocator()
 {

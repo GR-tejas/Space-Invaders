@@ -144,15 +144,15 @@
     <ClCompile Include="Source\TimeService.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header\GameServices.h" />
-    <ClInclude Include="Header\GraphicsServices.h" />
-    <ClInclude Include="Header\EventService.h" />
+    <ClInclude Include="Header\Main\GameServices.h" />
+    <ClInclude Include="Header\Graphic\GraphicsServices.h" />
+    <ClInclude Include="Header\Event\EventService.h" />
     <ClInclude Include="Header\Player\PlayerController.h" />
     <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
-    <ClInclude Include="Header\TimeService.h" />
-    <ClInclude Include="Header\PlayerService.h" />
-    <ClInclude Include="Header\ServiceLocator.h" />
+    <ClInclude Include="Header\Time\TimeService.h" />
+    <ClInclude Include="Header\Player\PlayerService.h" />
+    <ClInclude Include="Header\Global\ServiceLocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
