@@ -1,42 +1,16 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <iostream>
-using namespace std;
-using namespace sf;
+#include "../../Header/Player/PlayerController.h"
 
 class PlayerService
 {
 private:
-    int health = 3, playerScore = 0;
-
-    Vector2f position = Vector2f(350.0f, 500.0f);
-
-    float moveSpeed = 350.0f;
-
-    const sf::String player_texture_path = "assets/textures/player_ship.png";
-
-    Texture playerTexture;
-
-    Sprite playerSprite;
-
-    RenderWindow* game_window;
-
-    void initializePlayerSprite();
-
-    void processPlayerInput();
+	PlayerController* player_controller;
 
 public:
-    PlayerService();
-    ~PlayerService();
+	PlayerService();
+	~PlayerService();
 
-    void initialize();
-    void update();
-    void render();
-
-    //void move(float offsetX);
-    void moveLeft();
-    void moveRight();
-    float getMoveSpeed();
-    Vector2f getPosition();
+	void initialize();
+	void update();
+	void render();
 };
