@@ -10,7 +10,7 @@ namespace Graphic
 	{
 	private:
 		const string gameWindowTitle = "Space Defenders";
-		const int windowHight = 600, windowWidth = 800;
+		const int windowHight = 1920, windowWidth = 1080;
 		const Color windowColor = Color::Blue;
 
 		VideoMode* video_mode;

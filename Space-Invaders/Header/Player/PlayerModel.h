@@ -16,10 +16,10 @@ namespace Player
 		PlayerModel();
 		~PlayerModel();
 
-		const sf::Vector2f left_most_position = sf::Vector2f(50.f, 0.f);
-		const sf::Vector2f right_most_position = sf::Vector2f(700.f, 0.f);
+		const sf::Vector2f left_most_position = sf::Vector2f(50.0f, 950.0f);
+		const sf::Vector2f right_most_position = sf::Vector2f(1800.0f, 950.0f);
 
-		const float playerMoveSpeed = 200.0f;
+		const float playerMoveSpeed = 550.0f;
 
 		void initialize();
 
@@ -42,7 +42,7 @@ namespace Player
 		void setPlayerState(PlayerState state);
 
 	private:
-		const Vector2f initialPostion = Vector2f(800.0f, 600.0f);
+		const Vector2f initialPostion = Vector2f(915.0f, 950.0f);
 		Vector2f currentPosition;
 		bool playerAlive;
 		PlayerState player_state;

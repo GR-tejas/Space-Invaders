@@ -1,10 +1,11 @@
 #include "../../Header/Graphic/GraphicsServices.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-using namespace sf;
+
 
 namespace Graphic
 {
+	using namespace sf;
 	GraphicsService::GraphicsService()
 	{
 		video_mode = nullptr;
@@ -24,7 +25,7 @@ namespace Graphic
 	RenderWindow* GraphicsService::createGameWindow()
 	{
 		setVideoMode();
-		return new RenderWindow(*video_mode, gameWindowTitle);
+		return new RenderWindow(*video_mode, gameWindowTitle, Style::Fullscreen);
 	}
 
 	void GraphicsService::setVideoMode()
