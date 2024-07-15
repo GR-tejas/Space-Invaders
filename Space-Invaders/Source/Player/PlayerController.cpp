@@ -8,6 +8,7 @@
 namespace Player
 {
 	using namespace Global;
+	using namespace EventSpace;
 	PlayerController::PlayerController()
 	{
 		player_view = new PlayerView();
@@ -19,6 +20,22 @@ namespace Player
 		delete (player_view);
 		delete (player_model);
 	}
+
+	void PlayerController::processPlayerInput()
+	{
+		EventService* event_service = ServiceLocator::getInstance()->getEventService();
+
+		if (event_service->pressedLeftKey() || event_service->pressedAKey())
+		{
+			moveLeft();
+		}
+
+		if (event_service->pressedRightKey() || event_service->pressedDKey())
+		{
+			moveRight();
+		}
+	}
+
 	void PlayerController::initialize()
 	{
 		player_model->initialize();
@@ -41,18 +58,6 @@ namespace Player
 	sf::Vector2f PlayerController::getPlayerPosition()
 	{
 		return player_model->getPlayerPosition();
-	}
-
-	void PlayerController::processPlayerInput()
-	{
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)))
-		{
-			moveLeft();
-		}
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)))
-		{
-			moveRight();
-		}
 	}
 
 	void PlayerController::moveLeft()
