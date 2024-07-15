@@ -28,6 +28,7 @@ namespace Main
 	{
 		service_locator->initialize();
 		initializeVariables();
+		showMainMenu();
 	}
 
 	void GameService::initializeVariables()
@@ -38,6 +39,11 @@ namespace Main
 	void GameService::destroy()
 	{
 
+	}
+
+	void GameService::showMainMenu()
+	{
+		setGameState(GameState::MAIN_MENU);
 	}
 
 	void GameService::update()

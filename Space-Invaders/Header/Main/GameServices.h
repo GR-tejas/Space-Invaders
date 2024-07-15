@@ -14,6 +14,7 @@ namespace Main
 	class GameService
 	{
 	private:
+		void showMainMenu();
 		static GameState current_state;
 
 		Global::ServiceLocator* service_locator;

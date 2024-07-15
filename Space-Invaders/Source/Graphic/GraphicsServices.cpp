@@ -6,6 +6,7 @@
 namespace Graphic
 {
 	using namespace sf;
+
 	GraphicsService::GraphicsService()
 	{
 		video_mode = nullptr;

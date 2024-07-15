@@ -10,6 +10,7 @@ namespace UI
         using namespace Global;
         using namespace Main;
         using namespace Graphic;
+        using namespace EventSpace;
 
         MainMenuUIController::MainMenuUIController()
         {
@@ -86,9 +87,34 @@ namespace UI
             quit_button_sprite.setPosition({ x_position, 900.f });
         }
 
+        void MainMenuUIController::processButtonInteractions()
+        {
+            sf::Vector2f mouse_pos = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+
+            if (clickedButton(&play_button_sprite, mouse_pos))
+            {
+                GameService::setGameState(GameState::GAMEPLAY);
+            }
+            if (clickedButton(&instructions_button_sprite, mouse_pos))
+            {
+                printf("Clicked Instruction Button \\n");
+                //GameService::setGameState(GameState::GAMEPLAY);
+            }
+            if (clickedButton(&quit_button_sprite, mouse_pos))
+            {
+                game_window->close();
+            }
+        }
+
+        bool MainMenuUIController::clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
+        {
+            EventService* event_service = ServiceLocator::getInstance()->getEventService();
+            return event_service->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
+        }
+
         void MainMenuUIController::update()
         {
-
+            processButtonInteractions();
         }
 
         void MainMenuUIController::render()
@@ -98,6 +124,5 @@ namespace UI
             game_window->draw(instructions_button_sprite);
             game_window->draw(quit_button_sprite);
         }
-
     }
 }

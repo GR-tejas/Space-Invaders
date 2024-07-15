@@ -27,5 +27,7 @@ namespace EventSpace
 		bool isKeyboardEvent();
 		bool pressedLeftKey();
 		bool pressedRightKey();
+		bool pressedLeftMouseButton();
+		bool pressedRightMouseButton();
 	};
 }
