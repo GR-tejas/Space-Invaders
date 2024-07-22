@@ -8,7 +8,7 @@ namespace Enemy
     {
     private:
 
-        const sf::String Enemy_texture_path = "assets/textures/enemy_ship.png";
+        const sf::String Enemy_texture_path = "assets/textures/zapper.png";
         const float Enemy_sprite_width = 60.f;
         const float Enemy_sprite_height = 60.f;
 

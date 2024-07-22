@@ -1,4 +1,5 @@
 #include "../../Header/Graphic/GraphicsServices.h"
+#include"../../Header/Player/PlayerView.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -42,7 +43,7 @@ namespace Graphic
 
 	void GraphicsService::render()
 	{
-
+		
 	}
 
 	void GraphicsService::update()

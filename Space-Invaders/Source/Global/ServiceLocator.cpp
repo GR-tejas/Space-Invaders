@@ -28,6 +28,7 @@ namespace Global
 		player_service = new Player::PlayerService();
 		time_service = new TimeSpace::TimeService();
 		ui_service = new UI::UIService();
+		enemy_service = new Enemy::EnemyService();
 	}
 
 	void ServiceLocator::clearAllServices()

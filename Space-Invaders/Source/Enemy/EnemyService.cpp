@@ -24,12 +24,10 @@ namespace Enemy
 		enemy->render();
 	}
 
-	EnemyController* EnemyService::spawnEnemy()
+	void EnemyService::spawnEnemy()
 	{
 		enemy = new EnemyController();
 		enemy->initialize();
-
-		return enemy;
 	}
 
 	void EnemyService::Destroy()

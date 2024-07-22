@@ -5,7 +5,6 @@
 namespace Main
 {
 	using namespace Global;
-	class ServiceLocator;
 	GameState GameService::current_state = GameState::BOOT;
 
 	GameService::GameService()

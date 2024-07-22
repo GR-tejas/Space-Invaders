@@ -46,7 +46,7 @@ namespace Enemy
 		void setEnemyState(EnemyState state);*/
 
 	private:
-		const Vector2f initialPostion = Vector2f(915.0f, 950.0f);
+		const Vector2f initialPostion = Vector2f(500.0f, 500.0f);
 		Vector2f currentPosition;
 		bool enemyAlive;
 		EnemyState enemy_state;
