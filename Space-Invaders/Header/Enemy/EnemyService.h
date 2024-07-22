@@ -1,10 +1,14 @@
-#pragma once
+	#pragma once
 
 namespace Enemy
 {
+	class EnemyController;
+
 	class EnemyService
 	{
 	private:
+		void Destroy();
+		EnemyController* enemy;
 
 	public:
 		EnemyService();
@@ -13,5 +17,8 @@ namespace Enemy
 		void initialize();
 		void update();
 		void render();
+
+		EnemyController* spawnEnemy();
+
 	};
 }

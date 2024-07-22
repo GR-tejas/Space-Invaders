@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Header/Global/ServiceLocator.h"
+
 using namespace sf;
 
 namespace Main
@@ -18,7 +19,7 @@ namespace Main
 		static GameState current_state;
 
 		Global::ServiceLocator* service_locator;
-		RenderWindow* game_window;
+		sf::RenderWindow* game_window;
 
 		void initialize();
 		void initializeVariables();

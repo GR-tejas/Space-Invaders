@@ -1,10 +1,11 @@
-#include "../../Header/Main/GameServices.h"
+#include"../../Header/Main/GameServices.h"
 #include"../../Header/Graphic/GraphicsServices.h"
+#include"../../Header/Global/ServiceLocator.h"
 
 namespace Main
 {
 	using namespace Global;
-
+	class ServiceLocator;
 	GameState GameService::current_state = GameState::BOOT;
 
 	GameService::GameService()
