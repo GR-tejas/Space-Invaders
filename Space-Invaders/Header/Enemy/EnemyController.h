@@ -3,21 +3,19 @@
 
 namespace Enemy
 {
-    //enum class Enemy;
     class EnemyView;
     class EnemyModel;
 
     class EnemyController
     {
     private:
-        /*EnemyView* player_view;
-        EnemyModel* player_model;
-
-        void moveLeft();
-        void moveRight();*/
-
         EnemyView* enemy_view;
-        EnemyModel* enemy_model;    
+        EnemyModel* enemy_model;   
+
+        void move();
+        void moveLeft();
+        void moveRight();
+        void moveDown();
 
     public:
         EnemyController();
