@@ -5,33 +5,53 @@
 namespace Enemy
 {
 	using namespace Global;
+	using namespace TimeSpace;
 
-	EnemyService::EnemyService() { enemy = nullptr; }
-	EnemyService::~EnemyService() { Destroy(); }
+	EnemyService::EnemyService() {  }
+	EnemyService::~EnemyService() { destroy(); }
 
 	void EnemyService::initialize()
 	{
-		spawnEnemy();
+		spawn_time = spawn_intreval;
 	}
 
 	void EnemyService::update()
 	{
-		enemy->update();
+		updateSpawnTime();
+		processEnemySpawn();
+
+		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->update();
 	}
 
 	void EnemyService::render()
 	{
-		enemy->render();
+		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->render();
+	}
+
+	void EnemyService::updateSpawnTime()
+	{
+		spawn_time += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	}
+
+	void EnemyService::processEnemySpawn()
+	{
+		if (spawn_time >= spawn_intreval)
+		{
+			spawnEnemy();
+			spawn_time = 0.0f;
+		}
 	}
 
 	void EnemyService::spawnEnemy()
 	{
-		enemy = new EnemyController();
-		enemy->initialize();
+		EnemyController* enemy_controller = new EnemyController();
+		enemy_controller->initialize();
+
+		enemy_list.push_back(enemy_controller);
 	}
 
-	void EnemyService::Destroy()
+	void EnemyService::destroy()
 	{
-		delete(enemy);
+		for (int i = 0; i < enemy_list.size(); i++) delete(enemy_list[i]);
 	}
 }
