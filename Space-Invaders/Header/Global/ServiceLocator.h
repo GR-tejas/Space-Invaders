@@ -5,6 +5,7 @@
 #include"../../Header/Time/TimeService.h"
 #include"../../Header/UI/UIService.h"
 #include"../../Header/Enemy/EnemyService.h"
+#include "../../header/Gameplay/GameplayService.h"
 
 namespace Global
 {
@@ -17,6 +18,7 @@ namespace Global
         TimeSpace::TimeService* time_service;
         UI::UIService* ui_service;
         Enemy::EnemyService* enemy_service;
+        Gameplay::GameplayService* gameplay_service;
 
         ServiceLocator();
 
@@ -38,5 +40,6 @@ namespace Global
         TimeSpace::TimeService* getTimeService();
         UI::UIService* getUIService();
         Enemy::EnemyService* getEnemyService();
+        Gameplay::GameplayService* getGameplayService();
     };
 }
