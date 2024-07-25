@@ -11,7 +11,7 @@ namespace Enemy
 		const float spawn_intreval = 3.0f;
 
 		std::vector<EnemyController*> enemy_list;
-		float spawn_time;
+		float spawn_time = 0.0f;
 
 		void updateSpawnTime();
 		void processEnemySpawn();

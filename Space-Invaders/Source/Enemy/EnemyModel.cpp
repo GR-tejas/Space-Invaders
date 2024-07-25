@@ -16,12 +16,7 @@ namespace Enemy
 		movement_direction = MovementDirection::RIGHT;
 		enemy_position = reference_position;
 	}
-
-	MovementDirection EnemyModel::getMovementDirection()
-	{
-		return movement_direction;
-	}
-
+		
 	void EnemyModel::setMovementDirection(MovementDirection direction)
 	{
 		movement_direction = direction;
@@ -71,10 +66,5 @@ namespace Enemy
 	MovementDirection EnemyModel::getMovementDirection()
 	{
 		return movement_direction;
-	}
-
-	void EnemyModel::setMovementDirection(MovementDirection direction)
-	{
-		movement_direction = direction;
 	}
 }

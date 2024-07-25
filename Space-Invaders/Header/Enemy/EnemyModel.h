@@ -38,18 +38,8 @@ namespace Enemy
 		MovementDirection getMovementDirection();
 		void setMovementDirection(MovementDirection direction);
 
-		/*bool isEnemyAlive();
-		void setEnemyAlive(bool alive);
-
-		int getEnemyScore();
-		void setEnemyScore(int score);*/
-
-
 		EnemyType getEnemyType();
 		void setEnemyType(EnemyType type);
-
-		MovementDirection getMovementDirection();
-		void setMovementDirection(MovementDirection direction);
 
 		EnemyState getEnemyState();
 		void setEnemyState(EnemyState state);
@@ -58,7 +48,5 @@ namespace Enemy
 		const Vector2f initialPostion = Vector2f(500.0f, 500.0f);
 		Vector2f currentPosition;
 		bool enemyAlive;
-
-		MovementDirection movement_direction;
 	};
 }

@@ -1,6 +1,7 @@
 #include"../../Header/Enemy/EnemyController.h"
 #include"../../Header/Enemy/EnemyService.h"
 #include"../../Header/Global/ServiceLocator.h"
+#include"../../Header/Enemy/EnemyConfig.h"
 
 namespace Enemy
 {
@@ -44,7 +45,7 @@ namespace Enemy
 
 	void EnemyService::spawnEnemy()
 	{
-		EnemyController* enemy_controller = new EnemyController();
+		EnemyController* enemy_controller = new EnemyController(EnemyType::SUBZERO);
 		enemy_controller->initialize();
 
 		enemy_list.push_back(enemy_controller);

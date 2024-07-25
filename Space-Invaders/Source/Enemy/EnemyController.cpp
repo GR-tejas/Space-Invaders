@@ -2,15 +2,21 @@
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Enemy/EnemyConfig.h"
 
 namespace Enemy
 {
 	using namespace Global;
 
-	EnemyController::EnemyController()
+	EnemyController::EnemyController(EnemyType type)
 	{
 		enemy_view = new EnemyView();
-		enemy_model = new EnemyModel();
+		enemy_model = new EnemyModel(type);
+	}
+
+	EnemyController::EnemyController()
+	{
+		//thanks you so much!
 	}
 
 	EnemyController::~EnemyController()
@@ -99,5 +105,10 @@ namespace Enemy
 	sf::Vector2f EnemyController::getEnemyPosition()
 	{
 		return enemy_model->getEnemyPosition();
+	}
+
+	EnemyType EnemyController::getEnemyType()
+	{
+		return enemy_model->getEnemyType();
 	}
 }

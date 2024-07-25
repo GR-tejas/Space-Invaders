@@ -5,13 +5,12 @@ namespace Enemy
 {
     class EnemyView;
     class EnemyModel;
+    enum class EnemyType;
 
     class EnemyController
     {
     private:
-        EnemyView* enemy_view;
-        EnemyModel* enemy_model;   
-
+        
         void virtual move();
         void moveLeft();
         void moveRight();
@@ -19,12 +18,17 @@ namespace Enemy
 
     public:
         EnemyController();
+        EnemyController(EnemyType type);
         virtual ~EnemyController();
 
         void virtual initialize();
         void update();
         void render();
 
+        EnemyView* enemy_view;
+        EnemyModel* enemy_model;
+
         sf::Vector2f getEnemyPosition();
+        EnemyType getEnemyType();
     };
 }
