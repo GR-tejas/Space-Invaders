@@ -24,7 +24,7 @@ namespace Enemy
 	{
 		enemy_model->initialize();
 		enemy_view->initialize(this);
-	}
+	}	
 
 	/*void EnemyController::move()
 	{

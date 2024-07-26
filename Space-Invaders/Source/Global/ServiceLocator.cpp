@@ -13,6 +13,7 @@ namespace Global
 		ui_service = nullptr;
 		enemy_service = nullptr;
 		gameplay_service = nullptr;
+		element_service = nullptr;
 
 		createServices();
 	}
@@ -31,6 +32,7 @@ namespace Global
 		ui_service = new UI::UIService();
 		enemy_service = new Enemy::EnemyService();
 		gameplay_service = new Gameplay::GameplayService();
+		element_service = new Element::ElementService();
 	}
 
 	void ServiceLocator::clearAllServices()
@@ -42,6 +44,7 @@ namespace Global
 		delete(ui_service);
 		delete(enemy_service);
 		delete(gameplay_service);
+		delete(element_service);
 		graphics_service = nullptr;
 		event_service = nullptr;
 		player_service = nullptr;
@@ -49,6 +52,7 @@ namespace Global
 		ui_service = nullptr;
 		enemy_service = nullptr;
 		gameplay_service = nullptr;
+		element_service = nullptr;
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -66,6 +70,7 @@ namespace Global
 		ui_service->initialize();
 		enemy_service->initialize();
 		gameplay_service->initialize();
+		element_service->initialize();
 	}
 
 	void ServiceLocator::update()
@@ -74,12 +79,13 @@ namespace Global
 		event_service->update();
 		time_service->update();
 		ui_service->update();
-
+		
 		if (Main::GameService::getGameState() == Main::GameState::GAMEPLAY)
 		{
 			player_service->update();
 			enemy_service->update();
 			gameplay_service->update();
+			element_service->update();
 		}
 	}
 
@@ -93,6 +99,7 @@ namespace Global
 			gameplay_service->render();
 			player_service->render();
 			enemy_service->render();
+			element_service->render();
 		}
 	}
 
@@ -126,5 +133,10 @@ namespace Global
 	Gameplay::GameplayService* ServiceLocator::getGameplayService()
 	{
 		return gameplay_service;
+	}
+
+	Element::ElementService* ServiceLocator::getElementService()
+	{
+		return element_service;
 	}
 }
