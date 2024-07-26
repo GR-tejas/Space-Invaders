@@ -14,6 +14,7 @@ namespace Global
 		enemy_service = nullptr;
 		gameplay_service = nullptr;
 		element_service = nullptr;
+		sound_service = nullptr;
 
 		createServices();
 	}
@@ -33,6 +34,7 @@ namespace Global
 		enemy_service = new Enemy::EnemyService();
 		gameplay_service = new Gameplay::GameplayService();
 		element_service = new Element::ElementService();
+		sound_service = new SoundSpace::SoundService();
 	}
 
 	void ServiceLocator::clearAllServices()
@@ -45,6 +47,7 @@ namespace Global
 		delete(enemy_service);
 		delete(gameplay_service);
 		delete(element_service);
+		delete(sound_service);
 		graphics_service = nullptr;
 		event_service = nullptr;
 		player_service = nullptr;
@@ -53,6 +56,7 @@ namespace Global
 		enemy_service = nullptr;
 		gameplay_service = nullptr;
 		element_service = nullptr;
+		sound_service = nullptr;
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -71,6 +75,7 @@ namespace Global
 		enemy_service->initialize();
 		gameplay_service->initialize();
 		element_service->initialize();
+		sound_service->initialize();
 	}
 
 	void ServiceLocator::update()
@@ -138,5 +143,10 @@ namespace Global
 	Element::ElementService* ServiceLocator::getElementService()
 	{
 		return element_service;
+	}
+
+	SoundSpace::SoundService* ServiceLocator::getSoundService()
+	{
+		return sound_service;
 	}
 }

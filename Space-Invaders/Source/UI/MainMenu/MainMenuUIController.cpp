@@ -2,6 +2,7 @@
 #include "../../Header/Main/GameServices.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicsServices.h"
+#include"../../Header/Sound/SoundService.h"
 
 namespace UI
 {
@@ -11,6 +12,7 @@ namespace UI
         using namespace Main;
         using namespace Graphic;
         using namespace EventSpace;
+        using namespace SoundSpace;
 
         MainMenuUIController::MainMenuUIController()
         {
@@ -93,6 +95,8 @@ namespace UI
 
             if (clickedButton(&play_button_sprite, mouse_pos))
             {
+                ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+                ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic();
                 GameService::setGameState(GameState::GAMEPLAY);
             }
             if (clickedButton(&instructions_button_sprite, mouse_pos))

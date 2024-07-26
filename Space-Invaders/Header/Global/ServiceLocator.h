@@ -7,6 +7,7 @@
 #include"../../Header/Enemy/EnemyService.h"
 #include"../../header/Gameplay/GameplayService.h"
 #include"../../Header/Element/ElementService.h"
+#include"../../Header/Sound/SoundService.h"
 
 namespace Global
 {
@@ -21,6 +22,7 @@ namespace Global
         Enemy::EnemyService* enemy_service;
         Gameplay::GameplayService* gameplay_service;
         Element::ElementService* element_service;
+        SoundSpace::SoundService* sound_service;
 
         ServiceLocator();
 
@@ -44,5 +46,6 @@ namespace Global
         Enemy::EnemyService* getEnemyService();
         Gameplay::GameplayService* getGameplayService();
         Element::ElementService* getElementService();
+        SoundSpace::SoundService* getSoundService();
     };
 }
