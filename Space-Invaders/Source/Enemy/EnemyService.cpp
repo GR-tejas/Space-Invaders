@@ -4,6 +4,7 @@
 #include"../../Header/Enemy/EnemyConfig.h"
 #include"../../Header/Enemy/Controllers/SubZeroController.h"
 #include"../../Header/Enemy/Controllers/ZapperController.h"
+#include<iostream>
 
 namespace Enemy
 {
@@ -75,6 +76,7 @@ namespace Enemy
 	EnemyType EnemyService::getRandomEnemyType()
 	{
 		int randomType = std::rand() % 2;
+		std::cout << randomType<<"\n";
 		return static_cast<EnemyType>(randomType);
 	}
 

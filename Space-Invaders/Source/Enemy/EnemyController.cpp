@@ -24,67 +24,21 @@ namespace Enemy
 	{
 		enemy_model->initialize();
 		enemy_view->initialize(this);
-	}	
-
-	/*void EnemyController::move()
-	{
-		switch (enemy_model->getMovementDirection())
-		{
-		case::Enemy::MovementDirection::LEFT:
-			moveLeft();
-			break;
-
-		case::Enemy::MovementDirection::RIGHT:
-			moveRight();
-			break;
-
-		case::Enemy::MovementDirection::DOWN:
-			moveDown();
-			break;
-
-		default:
-			break;
-		}
 	}
 
-	void EnemyController::moveLeft()
+	void EnemyController::updateFireTimer()
 	{
-		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-		currentPosition.x -= enemy_model->enemyMoveSpeed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-
-		if (currentPosition.x <= enemy_model->left_most_position.x)
-		{
-			enemy_model->setMovementDirection(MovementDirection::DOWN);
-			enemy_model->setReferencePosition(currentPosition);
-		}
-		else enemy_model->setEnemyPosition(currentPosition);
+		elapsed_fire_duration += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 	}
 
-	void EnemyController::moveRight()
+	void EnemyController::processBulletFire()
 	{
-		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-		currentPosition.x += enemy_model->enemyMoveSpeed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-
-		if (currentPosition.x >= enemy_model->right_most_position.x)
+		if (elapsed_fire_duration >= rate_of_fire)
 		{
-			enemy_model->setMovementDirection(MovementDirection::DOWN);
-			enemy_model->setReferencePosition(currentPosition);
+			fireBullet();
+			elapsed_fire_duration = 0.f;
 		}
-		else enemy_model->setEnemyPosition(currentPosition);
 	}
-
-	void EnemyController::moveDown()
-	{
-		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-		currentPosition.y += enemy_model->enemyMoveSpeed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-
-		if (currentPosition.y >= enemy_model->getReferencePosition().y + enemy_model->vertical_travel_distance)
-		{
-			if (enemy_model->getReferencePosition().x <= enemy_model->left_most_position.x) enemy_model->setMovementDirection(MovementDirection::RIGHT);
-			else enemy_model->setMovementDirection(MovementDirection::LEFT);
-		}
-		else enemy_model->setEnemyPosition(currentPosition);
-	}*/
 
 	sf::Vector2f EnemyController::getRandomInitialPosition()
 	{
@@ -111,7 +65,10 @@ namespace Enemy
 
 	void EnemyController::update()
 	{
+		updateFireTimer();
+		processBulletFire();
 		enemy_view->update();
+		handleOutOfBounds();
 		move();
 	}
 

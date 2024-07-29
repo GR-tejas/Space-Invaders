@@ -1,8 +1,9 @@
 #pragma once
 #include "../../Header/Global/ServiceLocator.h"
 
-using namespace sf;
-
+namespace Global {
+	class ServiceLocator;
+}
 namespace Main
 {
 	enum class GameState 
@@ -11,7 +12,6 @@ namespace Main
 		MAIN_MENU,
 		GAMEPLAY,
 	};
-	using namespace Global;
 	class GameService
 	{
 	private:

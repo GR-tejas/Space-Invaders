@@ -18,4 +18,4 @@ namespace Projectile
 
 		virtual ~IProjectile() {};
 	};
-}
+}	

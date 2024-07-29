@@ -9,6 +9,7 @@ namespace Enemy
         {
         private:
             float vertical_movement_speed = 100.f;
+            float subzero_rate_of_fire = 150.f;
 
             void move() override;
             void moveDown();
@@ -16,6 +17,7 @@ namespace Enemy
             SubzeroController(EnemyType type);
             ~SubzeroController();
 
+            void fireBullet();
             void initialize() override;
         };
     }

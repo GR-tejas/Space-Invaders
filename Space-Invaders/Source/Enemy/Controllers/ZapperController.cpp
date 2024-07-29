@@ -6,6 +6,7 @@
 namespace Enemy
 {
 	using namespace Global;
+	using namespace Bullet;
 
 	namespace Controller
 	{
@@ -15,7 +16,15 @@ namespace Enemy
 
 		void ZapperController::initialize()
 		{
-			EnemyController::initialize();;
+			EnemyController::initialize();
+			rate_of_fire = zapper_rate_of_fire;
+		}
+
+		void ZapperController::fireBullet()
+		{	
+			ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET, 
+				enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
+				Bullet::MovementDirection::DOWN);
 		}
 
 		void ZapperController::move()

@@ -4,7 +4,6 @@
 
 namespace Main
 {
-	using namespace Global;
 	GameState GameService::current_state = GameState::BOOT;
 
 	GameService::GameService()
@@ -20,7 +19,7 @@ namespace Main
 
 	void GameService::start()
 	{
-		service_locator = ServiceLocator::getInstance();
+		service_locator = Global::ServiceLocator::getInstance();
 		initialize();
 	}
 

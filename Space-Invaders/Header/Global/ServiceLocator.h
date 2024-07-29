@@ -9,22 +9,23 @@
 #include"../../Header/Element/ElementService.h"
 #include"../../Header/Sound/SoundService.h"
 #include"../../Header/Bullet/BulletService.h"
+#include"../../Header/Main/GameServices.h"
 
 namespace Global
 {
     class ServiceLocator
     {
     private:
-        GraphicsService* graphics_service;
-        EventService* event_service;
-        PlayerService* player_service;
-        TimeService* time_service;
-        UIService* ui_service;
-        EnemyService* enemy_service;
-        GameplayService* gameplay_service;
-        ElementService* element_service;
-        SoundService* sound_service;
-        BulletService* bullet_service;
+        Graphic::GraphicsService* graphics_service;
+        EventSpace::EventService* event_service;
+        Player::PlayerService* player_service;
+        TimeSpace::TimeService* time_service;
+        UI::UIService* ui_service;
+        Enemy::EnemyService* enemy_service;
+        Gameplay::GameplayService* gameplay_service;
+        Element::ElementService* element_service;
+        SoundSpace::SoundService* sound_service;
+        Bullet::BulletService* bullet_service;
         
 
         ServiceLocator();
@@ -42,16 +43,16 @@ namespace Global
         void update();
         void render();
 
-        GraphicsService* getGraphicsService();
-        EventService* getEventService();
-        PlayerService* getPlayerService();
-        TimeService* getTimeService();
-        UIService* getUIService();
-        EnemyService* getEnemyService();
-        GameplayService* getGameplayService();
-        ElementService* getElementService();
-        SoundService* getSoundService();
-        BulletService* getBulletService();
+        Graphic::GraphicsService* getGraphicsService();
+        EventSpace::EventService* getEventService();
+        Player::PlayerService* getPlayerService();
+        TimeSpace::TimeService* getTimeService();
+        UI::UIService* getUIService();
+        Enemy::EnemyService* getEnemyService();
+        Gameplay::GameplayService* getGameplayService();
+        Element::ElementService* getElementService();
+        SoundSpace::SoundService* getSoundService();
+        Bullet::BulletService* getBulletService();
 
     };
 }

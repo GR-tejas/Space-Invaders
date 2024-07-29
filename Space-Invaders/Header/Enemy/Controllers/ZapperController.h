@@ -1,5 +1,6 @@
 #pragma once
 #include "../../header/Enemy/EnemyController.h"
+#include"../../Header/Bullet/BulletConfig.h"
 
 namespace Enemy
 {
@@ -9,6 +10,7 @@ namespace Enemy
         {
         private:
             float vertical_travel_distance = 100.f;
+            float zapper_rate_of_fire = 150.f;
 
             void move() override;
             void moveLeft();
@@ -18,6 +20,7 @@ namespace Enemy
             ZapperController(EnemyType type);
             ~ZapperController();
 
+            void fireBullet();
             void initialize() override;
         };
     }

@@ -2,7 +2,7 @@
 #include "../../Header/Bullet/BulletModel.h"
 
 namespace Bullet
-{
+{	
 	namespace Controller
 	{
 		LaserBulletController::LaserBulletController(BulletType type) : BulletController(type) { }
