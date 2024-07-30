@@ -1,12 +1,16 @@
 #pragma once
 #include "../../Header/UI/MainMenu/MainMenuUIContoller.h"
+#include"../../Header/UI/Interface/IUIController.h"
 
 namespace UI
 {
+	using namespace MainMenu;
+	using namespace Interface;
 	class UIService
 	{
 	private:
-		MainMenu::MainMenuUIController* main_menu_controller;
+		MainMenuUIController* main_menu_controller;
+
 
 		void createControllers();
 		void initializeControllers();
@@ -19,5 +23,8 @@ namespace UI
 		void initialize();
 		void update();
 		void render();
+		void showScreen();
+		/*void show();*/
+		IUIController* getCurrentUIController();
 	};
 }
