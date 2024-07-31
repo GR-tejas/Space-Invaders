@@ -1,4 +1,5 @@
 #pragma once
+#include<SFML/Graphics.hpp>
 #include "../../header/UI/UIElement/UIView.h"
 
 namespace UI
@@ -26,6 +27,8 @@ namespace UI
 			virtual void setOriginAtCentre();
 			virtual void setImageAlpha(float alpha);
 			virtual void setCentreAlinged();
+			const virtual sf::Sprite& getSprite();
+			
 		};
 	}
 }

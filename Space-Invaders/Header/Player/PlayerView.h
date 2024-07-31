@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../../Header/Player/PlayerController.h"
+#include "../../Header/UI/UIElement/ImageView.h"
 
 namespace Player
 {
@@ -17,6 +18,8 @@ namespace Player
         sf::Texture player_texture;
         sf::Sprite player_sprite;
 
+        UI::UIElement::ImageView* player_image;
+
         void initializePlayerSprite();
         void scalePlayerSprite();
 
@@ -25,13 +28,16 @@ namespace Player
     public:
         PlayerView();
         ~PlayerView();
-
+                
         void initialize(PlayerController* controller);
-
-        void initialize();
         void update();
         void render();
 
         const sf::Sprite& getPlayerSprite();
+
+        void createUIElements();
+        void initializeImage();
+
+        void destroy();
     };
 }

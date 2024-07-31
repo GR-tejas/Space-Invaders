@@ -1,52 +1,55 @@
-#include "../../Header/Player/PlayerView.h"
-#include "../../Header/Global/ServiceLocator.h"
+#include "../../header/Player/PlayerView.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Global/Config.h"
+#include "../../header/Graphic/GraphicsServices.h"
+#include "../../header/Player/PlayerController.h"
 
 namespace Player
 {
 	using namespace Global;
-	PlayerView::PlayerView() { }
+	using namespace UI::UIElement;
 
-	PlayerView::~PlayerView() { }
+	PlayerView::PlayerView() { createUIElements(); }
 
-	void PlayerView::initialize()
+	PlayerView::~PlayerView() { destroy(); }
+
+	void PlayerView::initialize(PlayerController* controller)
 	{
 
-		game_window = ServiceLocator::getInstance()->getGraphicsService()->getGameWindow();
-		initializePlayerSprite();
+		player_controller = controller;
+		initializeImage();
 	}
 
-	void PlayerView::initializePlayerSprite()
+	void PlayerView::createUIElements()
 	{
-		if (player_texture.loadFromFile(player_texture_path))
-		{
-			player_sprite.setTexture(player_texture);
-			scalePlayerSprite();
-		}
+		player_image = new ImageView();
 	}
 
-	void PlayerView::scalePlayerSprite()
+	void PlayerView::initializeImage()
 	{
-		player_sprite.setScale(
-			static_cast<float>(player_sprite_width) / player_sprite.getTexture()->getSize().x,
-			static_cast<float>(player_sprite_height) / player_sprite.getTexture()->getSize().y
-		);
-	}
+		player_image->initialize(Config::player_texture_path, player_sprite_width, player_sprite_height, player_controller->getPlayerPosition());
+	}	
 
 	void PlayerView::update()
 	{
-		player_sprite.setPosition(player_controller->getPlayerPosition());
+		player_image->setPosition(player_controller->getPlayerPosition());
+		player_image->update();
+
 	}
 
 	void PlayerView::render()
 	{
-		game_window->draw(player_sprite);
+		player_image->render();
 	}
 
-	void PlayerView::initialize(PlayerController* controller)
+	void PlayerView::destroy()
 	{
-		player_controller = controller; //to later use it for setting position
-		game_window = ServiceLocator::getInstance()->getGraphicsService()->getGameWindow();
-		initializePlayerSprite();
+		delete(player_image);
 	}
 
+	const sf::Sprite& PlayerView::getPlayerSprite()
+	{
+		return player_image->getSprite();
+	}
+		
 }
