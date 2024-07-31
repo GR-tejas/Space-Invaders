@@ -31,5 +31,7 @@ namespace Player
         void initialize();
         void update();
         void render();
+
+        const sf::Sprite& getPlayerSprite();
     };
 }
