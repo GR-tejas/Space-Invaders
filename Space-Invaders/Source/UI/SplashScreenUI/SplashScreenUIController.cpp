@@ -32,8 +32,8 @@ namespace UI
 
         void SplashScreenUIController::update()
         {
-            updateTimer();
-            showMainMenu();
+            outscal_logo_view->update();
+
         }
 
         void SplashScreenUIController::render()
@@ -48,14 +48,9 @@ namespace UI
 
         }
 
-        void SplashScreenUIController::showMainMenu()
+        void SplashScreenUIController::fadeInAnimationCallback()
         {
-            if (elapsed_duration >= splash_screen_duration)
-            {
-                ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic();
-                GameService::setGameState(GameState::MAIN_MENU);
-            }
-
+            outscal_logo_view->playAnimation(AnimationType::FADE_OUT, logo_animation_duration, std::bind(&SplashScreenUIController::fadeOutAnimationCallback, this));
         }
 
         void SplashScreenUIController::updateTimer()
@@ -75,7 +70,7 @@ namespace UI
 
         void SplashScreenUIController::show()
         {
-
+            outscal_logo_view->playAnimation(AnimationType::FADE_IN, logo_animation_duration, std::bind(&SplashScreenUIController::fadeInAnimationCallback, this));
         }
     }
 }
