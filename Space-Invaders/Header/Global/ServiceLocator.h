@@ -36,13 +36,13 @@ namespace Global
 
         ~ServiceLocator();
 
-        void deleteServiceLocator();
         void createServices();
         void clearAllServices();
 
     public:
         static ServiceLocator* getInstance();
 
+        void deleteServiceLocator();
         void initialize();
         void update();
         void render();

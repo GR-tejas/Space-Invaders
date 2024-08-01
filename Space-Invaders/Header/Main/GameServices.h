@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "../../Header/Global/ServiceLocator.h"
 
 class ServiceLocator;
@@ -7,13 +8,15 @@ namespace Main
 	enum class GameState 
 	{
 		BOOT,
+		SPLASH_SCREEN,
+		INSTRUCTIONS,
 		MAIN_MENU,
 		GAMEPLAY,
+		CREDITS,
 	};
 	class GameService
 	{
 	private:
-		void showMainMenu();
 		static GameState current_state;
 
 		Global::ServiceLocator* service_locator;
@@ -21,6 +24,7 @@ namespace Main
 
 		void initialize();
 		void initializeVariables();
+		void showSplashScreen();
 		void destroy();
 
 	public:
