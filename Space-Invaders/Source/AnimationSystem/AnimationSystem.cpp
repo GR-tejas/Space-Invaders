@@ -2,6 +2,7 @@
 #include "../../header/Global/Config.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/AnimationSystem/AnimationService.h"
+#include "../../header/AnimationSystem/AnimationSystemConfidData.h"
 
 namespace Animation
 {
