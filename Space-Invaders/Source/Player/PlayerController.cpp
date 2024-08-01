@@ -301,5 +301,13 @@ namespace Player
 		ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET,
 			player_model->getEntityType(), position, Bullet::MovementDirection::UP);
 	}
-}
+
+	void PlayerController::decreasePlayerLive()
+	{
+		PlayerModel::player_lives -= 1;
+		if (PlayerModel::player_lives <= 0)
+		{
+			reset();
+		}
+	}
 }

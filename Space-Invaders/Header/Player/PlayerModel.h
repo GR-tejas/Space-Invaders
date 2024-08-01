@@ -1,11 +1,12 @@
 #pragma once
 #include<SFML/Graphics.hpp>
 #include "../../header/Entity/EntityConfig.h"
-
-using namespace sf;
+#include "../../header/UI/GameplayUI/GameplayUIController.h"
 
 namespace Player
 {
+	using namespace sf;
+
 	enum class PlayerState
 	{
 		ALIVE,
@@ -16,11 +17,22 @@ namespace Player
 	class PlayerModel
 	{
 	private:
+		friend class PlayerController;
+
+		friend void UI::GameplayUI::GameplayUIController::updateEnemiesKilledText();
+		friend void UI::GameplayUI::GameplayUIController::drawPlayerLives();
+
 		const Vector2f initialPostion = Vector2f(915.0f, 950.0f);
+
+		const int max_player_lives = 3; //max lives
 		Vector2f currentPosition;
 		bool playerAlive;
+		sf::Vector2f player_position;
 		PlayerState player_state;
 		Entity::EntityType entity_type;
+
+		static int player_lives;
+		static int enemies_killed;
 
 		bool b_shield;
 		bool b_rapid_fire;
@@ -45,20 +57,21 @@ namespace Player
 		const float rapid_fire_powerup_duration = 10.f;
 		const float tripple_laser_powerup_duration = 10.f;
 
-		const float freeze_duration = 2.f;
+		const float freeze_duration = 1.5f;
 
 		const float fire_cooldown_duration = 0.2f;
 		const float rapid_fire_cooldown_duration = 0.05f;
 		const float tripple_laser_position_offset = 30.f;
 
-		float elapsed_shield_duration;
+		/*float elapsed_shield_duration;
 		float elapsed_rapid_fire_duration;
 		float elapsed_tripple_laser_duration;
 
 		float elapsed_fire_duration;
-		float elapsed_freeze_duration;
+		float elapsed_freeze_duration;*/
 
 		const float playerMoveSpeed = 550.0f;
+		static const int invincible_player_alpha = 170.f;
 
 		void initialize();
 		void reset();

@@ -2,6 +2,9 @@
 
 namespace Player
 {
+	int PlayerModel::player_lives;
+	int PlayerModel::enemies_killed;
+
 	PlayerModel::PlayerModel() { entity_type = Entity::EntityType::PLAYER; }
 
 	PlayerModel::~PlayerModel() { }
@@ -12,6 +15,19 @@ namespace Player
 	{
 		player_state = PlayerState::ALIVE;
 		currentPosition = initialPostion;
+
+		b_shield = false;
+		b_rapid_fire = false;
+		b_tripple_laser = false;
+	}
+
+	void PlayerModel::reset()
+	{
+		player_state = PlayerState::ALIVE;
+		player_position = initialPostion;
+
+		player_lives = max_player_lives;
+		enemies_killed = 0;
 
 		b_shield = false;
 		b_rapid_fire = false;

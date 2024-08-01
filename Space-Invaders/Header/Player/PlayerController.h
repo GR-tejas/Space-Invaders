@@ -65,5 +65,9 @@ namespace Player
 
         const sf::Sprite& getColliderSprite() override;
         void onCollision(ICollider* other_collider) override;
+
+        void decreasePlayerLive();
+        inline void increaseEnemiesKilled(int val) { PlayerModel::enemies_killed += val; }
+
     };
 }
