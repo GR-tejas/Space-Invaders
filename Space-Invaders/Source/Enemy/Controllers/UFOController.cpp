@@ -78,6 +78,18 @@ namespace Enemy
 			{
 				enemy_model->setEnemyPosition(currentPosition);
 			}
+
+			void UFOController::onCollision(ICollider * other_collider)
+			{
+				EnemyController::onCollision(other_collider);
+				BulletController* bullet_controller = dynamic_cast<BulletController*>(other_collider);
+
+				if (bullet_controller && bullet_controller->getOwnerEntityType() != EntityType::ENEMY)
+				{
+					ServiceLocator::getInstance()->getPowerupService()->spawnPowerup(getRandomPowerupType(), enemy_model->getEnemyPosition());
+					return;
+				}
+			}
 		}
 	}
 }

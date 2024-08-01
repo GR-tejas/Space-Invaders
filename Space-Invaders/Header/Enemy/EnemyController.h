@@ -1,14 +1,16 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../Collision/ICollider.h"
 
 namespace Enemy
 {
     class EnemyView;
     class EnemyModel;
+
     enum class EnemyType;
     enum class EnemyState;
 
-    class EnemyController
+    class EnemyController : public Collision::ICollider
     {
     protected:
         
@@ -17,6 +19,9 @@ namespace Enemy
 
         float rate_of_fire = 3.f;
         float elapsed_fire_duration = 0.f;
+
+        EnemyView* enemy_view;
+        EnemyModel* enemy_model;
 
         void updateFireTimer();
         void processBulletFire();
@@ -35,11 +40,11 @@ namespace Enemy
         void update();
         void render();
 
-        EnemyView* enemy_view;
-        EnemyModel* enemy_model;
-
         sf::Vector2f getEnemyPosition();
         EnemyType getEnemyType();
         EnemyState getEnemyState();
+
+        const sf::Sprite& getColliderSprite() override;
+        virtual void onCollision(ICollider* other_collider) override;
     };
 }

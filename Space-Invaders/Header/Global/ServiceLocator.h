@@ -11,6 +11,8 @@
 #include"../../Header/Bullet/BulletService.h"
 #include"../../Header/Main/GameServices.h"
 #include"../../Header/Powerup/PowerupService.h"
+using namespace UI::UIService;
+using namespace UI::UIService;
 
 namespace Global
 {
@@ -21,13 +23,14 @@ namespace Global
         EventSpace::EventService* event_service;
         Player::PlayerService* player_service;
         TimeSpace::TimeService* time_service;
-        UI::UIService* ui_service;
         Enemy::EnemyService* enemy_service;
         Gameplay::GameplayService* gameplay_service;
         Element::ElementService* element_service;
         SoundSpace::SoundService* sound_service;
         Bullet::BulletService* bullet_service;
         Powerup::PowerupService* powerup_service;
+        UI::UIService* ui_service;
+        
 
         ServiceLocator();
 
@@ -48,12 +51,13 @@ namespace Global
         EventSpace::EventService* getEventService();
         Player::PlayerService* getPlayerService();
         TimeSpace::TimeService* getTimeService();
-        UI::UIService* getUIService();
         Enemy::EnemyService* getEnemyService();
         Gameplay::GameplayService* getGameplayService();
         Element::ElementService* getElementService();
         SoundSpace::SoundService* getSoundService();
         Bullet::BulletService* getBulletService();
         Powerup::PowerupService* getPowerupService();
+        UI::UIService* getUIService();
+        
     };
 }
