@@ -76,7 +76,7 @@ namespace Enemy
 
 	EnemyType EnemyService::getRandomEnemyType()
 	{
-		int randomType = std::rand() % 4;
+		int randomType = std::rand() % 3;
 		std::cout << randomType<<"\n";
 		return static_cast<EnemyType>(randomType);
 	}

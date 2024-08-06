@@ -10,9 +10,8 @@ namespace Enemy
         {
         private:
 
-            void move() override;
-            void moveLeft();
-            void moveRight();
+            
+            
 
             void fireBullet() override;
             Powerup::PowerupType getRandomPowerupType();
@@ -21,6 +20,9 @@ namespace Enemy
             UFOController(EnemyType type);
             ~UFOController();
 
+            void move() override;
+            void moveLeft();
+            void moveRight();
             void initialize() override;
         };
     }

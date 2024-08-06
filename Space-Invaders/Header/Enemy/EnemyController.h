@@ -25,7 +25,7 @@ namespace Enemy
         sf::Vector2f getRandomInitialPosition();
         void handleOutOfBounds();
 
-        void virtual move() = 0;
+        
         
     public:
         EnemyController(EnemyType type);
@@ -34,6 +34,8 @@ namespace Enemy
         void virtual initialize();
         void update();
         void render();
+
+        void virtual move() = 0;
 
         EnemyView* enemy_view;
         EnemyModel* enemy_model;

@@ -10,7 +10,7 @@ namespace Enemy
 
 	namespace Controller
 	{
-		UFOController::UFOController(EnemyType type) : EnemyController(EnemyType::UFO) { }
+		UFOController::UFOController(EnemyType type) : EnemyController(EnemyType::UFO) { std::cout << "7"; }
 
 		UFOController::~UFOController() { }
 

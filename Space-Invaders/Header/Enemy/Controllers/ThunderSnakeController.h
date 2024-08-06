@@ -6,16 +6,16 @@ namespace Enemy
 {
     namespace Controller
     {
-        class ZapperController : public EnemyController
+        class ThunderSnakeController : public EnemyController
         {
         private:
             float vertical_travel_distance = 100.f;
             float zapper_rate_of_fire = 150.f;
 
-            
+
         public:
-            ZapperController(EnemyType type);
-            ~ZapperController();
+            ThunderSnakeController(EnemyType type);
+            ~ThunderSnakeController();
 
             void fireBullet();
             void initialize() override;

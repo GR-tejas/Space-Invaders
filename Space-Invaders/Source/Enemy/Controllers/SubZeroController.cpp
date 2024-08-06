@@ -8,10 +8,11 @@ namespace Enemy
 {
 	 using namespace Global;
 	 using namespace Bullet;
+	 
 
 	namespace Controller
 	{
-		SubzeroController::SubzeroController(EnemyType type) : EnemyController(EnemyType::SUBZERO) { }
+		SubzeroController::SubzeroController(EnemyType type) : EnemyController(EnemyType::SUBZERO) { std::cout << "8"; }
 
 		SubzeroController::~SubzeroController() { }
 
@@ -31,20 +32,27 @@ namespace Enemy
 
 		void SubzeroController::move()
 		{
+			
 			switch (enemy_model->getMovementDirection())
 			{
 			case::Enemy::MovementDirection::DOWN:
+				
 				moveDown();
+				
 				break;
 			}
+			
 		}
+		
 
 		void SubzeroController::moveDown()
 		{
+			
 			sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 			currentPosition.y += vertical_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 			
 			enemy_model->setEnemyPosition(currentPosition);
+			
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace Powerup
 	void PowerupView::initialize(PowerupController* controller)
 	{
 		powerup_controller = controller;
-		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		game_window = ServiceLocator::getInstance()->getGraphicsService()->getGameWindow();
 		initializeImage(powerup_controller->getPowerupType());
 	}
 

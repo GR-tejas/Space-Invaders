@@ -1,4 +1,4 @@
-#include "../../Header/Enemy/Controllers/ZapperController.h"
+#include "../../Header/Enemy/Controllers/ThunderSnakeController.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Enemy/EnemyConfig.h"
 #include "../../Header/Global/ServiceLocator.h"
@@ -10,49 +10,42 @@ namespace Enemy
 
 	namespace Controller
 	{
-		ZapperController::ZapperController(EnemyType type) : EnemyController(EnemyType::ZAPPER) { std::cout << "9"; }//yeah
+		ThunderSnakeController::ThunderSnakeController(EnemyType type) : EnemyController(EnemyType::THUNDER_SNAKE) { std::cout << "10"; }
 
-		ZapperController::~ZapperController() { }
+		ThunderSnakeController::~ThunderSnakeController() { }
 
-		void ZapperController::initialize()
+		void ThunderSnakeController::initialize()
 		{
 			EnemyController::initialize();
 			rate_of_fire = zapper_rate_of_fire;
 		}
 
-		void ZapperController::fireBullet()
-		{	
-			ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET, 
+		void ThunderSnakeController::fireBullet()
+		{
+			ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET,
 				enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
 				Bullet::MovementDirection::DOWN);
 		}
 
-		void ZapperController::move()
+		void ThunderSnakeController::move()
 		{
-			std::cout << "7";
 			switch (enemy_model->getMovementDirection())
 			{
 			case::Enemy::MovementDirection::LEFT:
-				std::cout << "8";
 				moveLeft();
-				std::cout << "9";
 				break;
 
 			case::Enemy::MovementDirection::RIGHT:
-				std::cout << "10";
 				moveRight();
-				std::cout << "11";
 				break;
 
 			case::Enemy::MovementDirection::DOWN:
-				std::cout << "12";
 				moveDown();
-				std::cout << "13";
 				break;
 			}
 		}
 
-		void ZapperController::moveLeft()
+		void ThunderSnakeController::moveLeft()
 		{
 
 			sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
@@ -70,7 +63,7 @@ namespace Enemy
 			}
 		}
 
-		void ZapperController::moveRight()
+		void ThunderSnakeController::moveRight()
 		{
 			sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 
@@ -87,7 +80,7 @@ namespace Enemy
 			}
 		}
 
-		void ZapperController::moveDown()
+		void ThunderSnakeController::moveDown()
 		{
 			sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 
